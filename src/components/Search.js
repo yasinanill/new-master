@@ -2,6 +2,7 @@
 import {AiFillCloseCircle} from "react-icons/ai"
 import {useState} from "react";
 import classNames from "classnames";
+import Icon from "./Icon";
 
 
 export default function Search() {
@@ -14,7 +15,7 @@ export default function Search() {
 				"absolute text-[#8e8e8e] pointer-events-none top-0 left-0 h-9 w-9 flex items-center justify-center": true,
 				"hidden": open
 			})}>
-				
+				<Icon name="search" />
 			</span>
 			<input onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} type="text" placeholder="Search" className="h-9 outline-none focus:pl-3 pl-9 w-full rounded bg-[#efefef]"/>
 			<button onClick={() => setOpen(false)} className={classNames({
