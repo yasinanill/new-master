@@ -17,6 +17,7 @@ export default function Input({label, type = 'text', ...props}) {
 	}, [show])
 
 	return (
+		
 		<label className="block relative flex bg-zinc-50 border rounded-sm focus-within:border-gray-400">
 			<input type={inputType} className={classNames({
 				"px-2 outline-none text-xs bg-transparent w-full h-[38px]": true,
