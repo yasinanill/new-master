@@ -3,7 +3,7 @@ import {Link, NavLink} from "react-router-dom";
 import { logout } from "../firebaseConfig";
 import Icon from "./Icon";
 import Search from "./Search";
-
+import classNames from "classnames";
 
 export default function Header() {
 
@@ -22,10 +22,10 @@ export default function Header() {
 
 				<nav className="flex items-center gap-x-6">
 					<NavLink to="/">
-						<Icon name="home" size={24} />
+					{({ isActive }) => <Icon name={isActive ? 'home-filled' : 'home'} size={24} />}
 					</NavLink>
-					<NavLink to="/">
-						<Icon name="direct" size={24} />
+					<NavLink to="/inbox">
+					{({ isActive }) => <Icon name={isActive ? 'direct-filled' : 'direct'} size={24} />}
 					</NavLink>
 					<NavLink to="/">
 						<Icon name="new" size={24} />
@@ -37,7 +37,10 @@ export default function Header() {
 						<Icon name="heart" size={24} />
 					</NavLink>
 					<NavLink to={`/${user.username}`}>
-						<img src="/no-avatar.jpeg" alt="" className="w-6 h-6 rounded-full"/>
+					{({isActive}) => <img src="/no-avatar.jpeg" alt="" className={classNames({
+							"w-6 h-6 rounded-full": true,
+							"ring-1 ring-offset-1	ring-black": isActive
+						})}/>}
 					</NavLink>
 				</nav>
 

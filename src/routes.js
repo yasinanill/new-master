@@ -9,6 +9,9 @@ import ProfileLayout from "./pages/profile/profile";
 import ProfilePosts from "./pages/profile/posts";
 import ProfileTagged from "./pages/profile/tagget";
 import Logout from "./pages/logout";
+import Inboxlayout from "./pages/inbox";
+import Inbox from "./pages/inbox/inbox";
+import Chat from "./pages/inbox/chat";
 
 
 
@@ -45,7 +48,22 @@ const routes = [
               element: <ProfileTagged/>
           },
         ]
-    }
+    },
+    {
+      path: '/inbox',
+      element: <Inboxlayout />,
+      children: [
+          {
+            index: true,
+            element: <Inbox />
+  
+          },
+          {
+						path: ':conversationId',
+						element: <Chat />
+					}
+        ]
+    },
   
   
   ],
@@ -68,7 +86,13 @@ const routes = [
 
 
     ]
-}
+
+
+
+
+  },
+
+
 ];
 
  const authCheck = routes => routes.map(route => {
